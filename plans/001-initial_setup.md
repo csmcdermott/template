@@ -221,5 +221,5 @@ Implemented 2026-03-13. All requirements from PRD 001 verified:
 - [x] Pre-commit hook fires during a test commit
 
 ### Phase 7 — Commit
-- [ ] Stage all new and modified files
-- [ ] Create initial v0.0.0 commit
+- [x] Stage all new and modified files
+- [x] Create initial v0.0.0 commit
