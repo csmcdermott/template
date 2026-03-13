@@ -1,0 +1,1 @@
+This is a scaffold for quickily launching new projects. It includes context and guardrails for agents in AGENTS.md, some basic templates for things like Product Requirement documents and implementation plans, and a stubbed-out Makefile with an example of how to ensure that tests are passing before changes can be committed (a git pre-commit hook script).
