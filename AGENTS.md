@@ -7,17 +7,15 @@ This document provides a technical overview of the {PROJECT NAME} project, inten
 
 - **prds/**: A place to store and version all Product Requirement Documents
 - **plans/**: A place to store and version all plans related to project development
-- **research/**: A place for agents to store research files, code analysis, self-improvement lessons, and API specs for integrations
 - **docs/**: A place to keep documentation and reference material for this project (eg, an OpenAPI spec of all API endpoints)
+- **docs/agent/**: A place for agents to store research files, code analysis, self-improvement lessons, etc
 - **scripts/**: A place to put utility scripts, such as pre-commit and post-commit scripts, customer linters, etc.
 
 
 ## Architectural Notes
 
 - Put any high-level relevant constraints here, such as language choices or components
-- Backend code is written in Rust
-- Frontend code is written in Typescript and React
-- The vector database is PostreSQL using pgvector
+- 
 
 ## Standard Operating Protocol
 
