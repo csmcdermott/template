@@ -19,61 +19,29 @@ This document provides a technical overview of the {PROJECT NAME} project, inten
 - Frontend code is written in Typescript and React
 - The vector database is PostreSQL using pgvector
 
+## Standard Operating Protocol
 
-## Workflow Orchestration
+Always follow this workflow precisely. Do not deviate. If anything is unclear, ask for clarification.
 
-### 1. Plan Mode Default
-- Read @research/code-analysis.md before planning any changes
-- Enter plan mode for ANY non-trivial task (3+ steps or architectural decisions)
-- If something goes sideways, STOP and re-plan immediately - don't keep pushing
-- Use plan mode for verification steps, not just building
-- Write detailed specs up front to reduce ambiguity
-- All plans must be written to the 'plans' directory **prior** to implementation
-- Plans should have a detailed and specific to-do list at the bottom, including every phase and task necessary to implement the plan
-- Every plan should be checked into git, and every change to a plan file should be committed with the prompt that drove it
+1. **Orient yourself.** Invoke the `project-analysis` skill. Read `docs/agent/project-analysis.md` and `docs/agent/lessons.md`. Look through the entire project and understand it in detail - don't just skim, but examine everything in depth. Then check `plans/` for any plan with unchecked items — if one exists, ask the user what to do next. Stop here.
+2. **Check for a new PRD in `prds/`.** If none exists, ask the user what to do next. Stop here.
+3. **New PRD found.** Read it, invoke `superpowers:brainstorming` and the `product-manager` agent. Ask clarifying questions, and update the PRD as it is refined. Repeat until the user confirms it is ready, then mark it "Approved" and commit it.
+4. **Check PRD completeness.** If the PRD does not have clear "Main Acceptance Criteria", "Alternate Workflows", and "Exception Scenarios", return to step 3 and continue refining. Otherwise, continue.
+5. **Generate tests.** Invoke `superpowers:test-driven-development`. Write tests for every acceptance criterion, alternate workflow, and exception scenario. Run them.
+6. **Verify tests fail.** If all new tests are passing at this point, stop and ask the user for guidance — something is wrong (the feature hasn't been implemented yet so the tests should fail). Otherwise, continue.
+7. **Write a plan.** Invoke `superpowers:writing-plans`. Write a plan to implement everything in the PRD and make all new tests pass. Invoke `quality-reviewer`, `security-reviewer`, and `architect-reviewer` agents to review and improve the plan. Do not implement anything yet. Refine the plan until the user confirms it is ready.
+8. **Implement the plan.** Invoke `superpowers:executing-plans`. Work through the plan step by step. Mark items complete as you go. Provide a high-level summary after each step.
+9. **Verify completeness.** Invoke `superpowers:verification-before-completion`. If any PRD specs are unmet, or any linters, tests, or coverage checks (>80%) are failing, re-evaluate the PRD, tests, and plan, then continue implementing. Repeat until everything passes.
+10. **Document results.** Add a review section to the plan file.
+11. **Ask the user to review.** If the user identifies gaps, get clarification and return to step 8. Repeat until the user confirms the work is fully complete.
+12. **Wrap up.** Bump the version, invoke the `self-improvement` skill and the `project-analysis` skill, and then commit the changes.
 
-### 2. Subagent Strategy
-- Use subagents liberally to keep main context window clean
-- Offload research, exploration, and parallel analysis to subagents
-- For complex problems, throw more compute at it via subagents
-- One tack per subagent for focused execution
 
-### 3. Self-Improvement Loop
-- After ANY correction from the user: update @research/lessons.md with the pattern
-- Write rules for yourself that prevent the same mistake
-- Ruthlessly iterate on these lessons until mistake rate drops
-- Review lessons at session start for relevant project
-
-### 4. Verification Before Done
-- Never mark a task complete without proving it works
-- Diff behavior between main and your changes when relevant
-- Ask yourself: "would a staff engineer approve this?"
-- Run tests, check logs, demonstrate correctness
-
-### 5. Demand Elegance
-- For non-trivial changes: pause and ask "is there a more elegant way?"
-- If a fix feels hacky: "Knowing everything I know now, implement the elegant solution"
-- Skip this for simple, obvious fixes - don't over-engineer
-- Challenge your own work before presenting it
-
-### 6. Documentation
-- Copies of any reference materials like API specs, docs sites, how-to guides, readme files, manifests and anything else used during planning and research phases should be cached locally in @research/reference/. When investigating and planning, use those cached copies to reduce the number of web searches necessary.
+## Documentation
 - Developer documentation for APIs should use the OpenAPI standard
-- After fully implementing and validating a plan, update @research/codebase-analysis.md to keep it accurate and relevant
 
 
-## Task Management
-
-1. **Plan First**: Write plan to @plans/ directory with checkable items
-1. **Verify Plan**: Check in before starting implementation
-1. **Track Progress**: Mark items complete as you go
-1. **Explain Changes**: High-level summary at each step
-1. **Validate Results**: Run tests, check logs, prove to yourself that the change worked
-1. **Document Results**: Add review section to the plan file
-1. **Capture Lessons**: Update @research/lessons.md after correction
-
-
-## Core Principals
+## Core Principles
 
 - **Simplicity First**: Make every change as simple as possible. Impact minimal code.
 - **Secure by Default**: Security as a first-class concern. Keep attack surface area as small as possible.
@@ -86,8 +54,8 @@ This document provides a technical overview of the {PROJECT NAME} project, inten
 
 ## Quality Gates
 
-- **PRD Completeness**: A plan is not complete until ALL requirements from implementation plan have been proven working.
-- **Tests Passing**: A plan is not complete until ALL tests are passing and test coverage is >80%. 
+- **PRD Completeness**: A plan is not complete until **ALL** requirements from the PRD spec have been **proven** working.
+- **Tests Passing**: A plan is not complete until **ALL** tests are passing and test coverage is >80%.
 
 
 ## Coding Style
