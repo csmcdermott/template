@@ -13,7 +13,7 @@
 | **Project name** | {PROJECT NAME} |
 | **Purpose** | {One-sentence description of what this project does} |
 | **Target release** | 0.0.0 |
-| **Last updated** | {YYYY-MM-DD-HH:mm} |
+| **Last updated** | 2026-03-31 |
 
 ---
 
@@ -54,16 +54,25 @@ _Not yet documented. Fill in after initial architecture is established._
 
 ```
 .
-├── AGENTS.md          # Agent instructions (shared by CLAUDE.md, GEMINI.md)
-├── CLAUDE.md          # Claude Code entrypoint → AGENTS.md
-├── GEMINI.md          # Gemini entrypoint → AGENTS.md
-├── Makefile           # Build, lint, test, and utility targets
-├── docs/              # Reference material, OpenAPI specs, how-to guides
-├── plans/             # Implementation plans (written before coding begins)
-├── prds/              # Product Requirement Documents
-├── research/          # Agent research: code analysis, lessons, cached references
-│   └── reference/     # Cached copies of external docs, API specs, README files
-└── scripts/           # Utility scripts (pre-commit hook, linters, etc.)
+├── AGENTS.md              # Agent instructions (shared by CLAUDE.md, GEMINI.md)
+├── CLAUDE.md              # Claude Code entrypoint → AGENTS.md
+├── GEMINI.md              # Gemini entrypoint → AGENTS.md
+├── LICENSE
+├── Makefile               # Build, lint, test, and utility targets
+├── README.md
+├── docs/
+│   ├── agent/             # Agent-facing files: project analysis, lessons learned
+│   │   ├── project-analysis.md  # This file — read before any session
+│   │   └── lessons.md     # Correction log, patterns, anti-patterns
+│   └── superpowers/       # Superpowers skill artifacts (plans, specs)
+│       ├── plans/
+│       └── specs/
+├── plans/                 # Implementation plans (written before coding begins)
+├── prds/                  # Product Requirement Documents
+│   ├── 000-template.md    # Blank PRD template
+│   └── 001-initial_setup.md
+└── scripts/               # Utility scripts (pre-commit hook, linters, etc.)
+    └── pre-commit.sh      # Runs lint, coverage, test before each commit
 ```
 
 ---
@@ -130,3 +139,5 @@ _Not yet documented._
 | Date | File / Area | What changed |
 | --- | --- | --- |
 | 2026-03-13 | entire repo | Initial scaffold — template structure only, no application code |
+| 2026-03-31 | docs/agent/ | Moved agent files from research/ to docs/agent/; renamed code-analysis.md → project-analysis.md |
+| 2026-03-31 | README.md | Added Claude Code skills installation instructions |
