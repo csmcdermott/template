@@ -27,6 +27,7 @@ This project uses Claude Code with custom skills and agents that are not bundled
 git clone git@github.com:csmcdermott/mcds_agentic_tools.git ~/mcds_agentic_tools
 ln -s ~/mcds_agentic_tools/skills/* ~/.claude/skills/
 ln -s ~/mcds_agentic_tools/agents/* ~/.claude/agents/
+```
 
 ### Pre-commit Hook
 
