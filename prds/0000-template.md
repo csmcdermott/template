@@ -8,18 +8,27 @@
 
 ## **Objective**
 
-## **Success metrics**
-
-| **Goal** | **Metric** |
-| --- | --- |
-|  |  |
-|  |  |
 
 ## **Assumptions**
 
+
 ## **Requirements**
 
+  ### Main Acceptance Criteria
+
+  - 
+
+  ### Alternate Workflows
+
+  - 
+
+  ### Exception Scenarios
+
+  - 
+
+
 ## **User interaction and design**
+
 
 ## **Open Questions**
 
