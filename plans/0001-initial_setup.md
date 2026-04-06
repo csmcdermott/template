@@ -1,5 +1,5 @@
 # Plan: Initial Setup
-| **PRD** | [prds/001-initial_setup.md](../prds/001-initial_setup.md) |
+| **PRD** | [prds/0001-initial_setup.md](../prds/0001-initial_setup.md) |
 | --- | --- |
 | **Status** | IN PROGRESS |
 | **Target release** | 0.0.0 |
@@ -17,9 +17,9 @@ Scaffold the template repository with placeholder directories, template files, s
 | `CLAUDE.md` | ✅ | Points to `AGENTS.md` |
 | `GEMINI.md` | ✅ | Points to `AGENTS.md` |
 | `AGENTS.md` | ✅ | Full agent instructions |
-| `prds/000-template.md` | ✅ | Blank PRD template |
-| `prds/001-initial_setup.md` | ✅ | The PRD for this work |
-| `plans/001-initial_setup.md` | ✅ | This file |
+| `prds/0000-template.md` | ✅ | Blank PRD template |
+| `prds/0001-initial_setup.md` | ✅ | The PRD for this work |
+| `plans/0001-initial_setup.md` | ✅ | This file |
 | `research/code-analysis.md` | ⚠️ | Exists but empty — needs structured content |
 | `research/lessons.md` | ⚠️ | Exists but empty — needs structured content |
 | `docs/.gitkeep` | ❌ | Missing |
@@ -144,7 +144,7 @@ Files to stage:
 - `docs/.gitkeep`
 - `Makefile`
 - `scripts/pre-commit.sh`
-- `plans/001-initial_setup.md` (this file)
+- `plans/0001-initial_setup.md` (this file)
 - Any already-staged files from earlier sessions (`CLAUDE.md`, `GEMINI.md`, `AGENTS.md`, `prds/`)
 
 ---

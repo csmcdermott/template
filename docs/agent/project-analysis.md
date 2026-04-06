@@ -26,7 +26,7 @@
 | Backend | Rust | |
 | Frontend | TypeScript + React | |
 | Vector DB | PostgreSQL + pgvector | |
-| Build | Make | Stubbed targets; replace with real tooling |
+| Build | just | Stubbed recipes; replace with real tooling |
 
 ---
 
@@ -58,8 +58,15 @@ _Not yet documented. Fill in after initial architecture is established._
 ├── CLAUDE.md              # Claude Code entrypoint → AGENTS.md
 ├── GEMINI.md              # Gemini entrypoint → AGENTS.md
 ├── LICENSE
-├── Makefile               # Build, lint, test, and utility targets
+├── justfile               # Build, lint, test, and utility recipes
 ├── README.md
+├── .agents/
+│   ├── skills/            # Local project skills (SKILL.md per skill)
+│   │   └── new-feature/   # End-to-end new feature workflow skill
+│   └── commands/          # Local slash commands
+│       └── new-feature.md # /new-feature → invokes new-feature skill
+├── .claude/
+│   └── skills -> ../.agents/skills  # Symlink for Claude Code skill discovery
 ├── docs/
 │   ├── agent/             # Agent-facing files: project analysis, lessons learned
 │   │   ├── project-analysis.md  # This file — read before any session
@@ -69,10 +76,10 @@ _Not yet documented. Fill in after initial architecture is established._
 │       └── specs/
 ├── plans/                 # Implementation plans (written before coding begins)
 ├── prds/                  # Product Requirement Documents
-│   ├── 000-template.md    # Blank PRD template
-│   └── 001-initial_setup.md
-└── scripts/               # Utility scripts (pre-commit hook, linters, etc.)
-    └── pre-commit.sh      # Runs lint, coverage, test before each commit
+│   ├── 0000-template.md   # Blank PRD template
+│   └── 0001-initial_setup.md
+└── scripts/               # Utility scripts (pre-push hook, linters, etc.)
+    └── pre-push.sh        # Runs lint, coverage, test before each push
 ```
 
 ---
@@ -141,3 +148,9 @@ _Not yet documented._
 | 2026-03-13 | entire repo | Initial scaffold — template structure only, no application code |
 | 2026-03-31 | docs/agent/ | Moved agent files from research/ to docs/agent/; renamed code-analysis.md → project-analysis.md |
 | 2026-03-31 | README.md | Added Claude Code skills installation instructions |
+| 2026-04-06 | Makefile → justfile | Migrated build targets to justfile; updated README.md, pre-commit.sh, project-analysis.md, AGENTS.md |
+| 2026-04-06 | .agents/skills/new-feature/ | Added new-feature skill and command; removed HomeHQ-specific skill refs |
+| 2026-04-06 | scripts/pre-push.sh | Renamed from pre-commit.sh; justfile recipe updated to install-pre-push |
+| 2026-04-06 | README.md | Restructured Skills Setup for Claude Code + OpenCode; trimmed intro to defer to AGENTS.md |
+| 2026-04-06 | AGENTS.md | Added Session Start, Skills and Commands, Dev Workflow sections; added .agents/ dirs to Project Structure |
+| 2026-04-06 | prds/ plans/ | Renamed files to 4-digit convention (000→0000, 001→0001); updated all references |

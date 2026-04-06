@@ -17,7 +17,8 @@
 
 | Date | What went wrong | Rule learned |
 | --- | --- | --- |
-| | | |
+| 2026-04-06 | Called Edit on files that hadn't been read yet — tool rejected every call | Always Read a file before calling Edit on it, even when the change seems obvious |
+| 2026-04-06 | Called WebFetch without its schema loaded — tool rejected the call with a parameter validation error | Deferred tools must be loaded via ToolSearch before they can be called; do this before the first use |
 
 ---
 
@@ -42,4 +43,6 @@
 <!-- One-off facts that are easy to forget: quirky build steps, non-obvious dependencies,
      environment requirements, ordering constraints, etc. -->
 
-- _(None yet — add entries as you discover them)_
+- PRD and plan files use a **4-digit** numeric prefix (e.g. `0001-`, `0002-`). Do not use 3-digit prefixes when creating new files.
+- `.claude/skills` is a symlink to `.agents/skills` — skills are authored once in `.agents/skills/` and discovered by Claude Code via the symlink.
+- OpenCode global config lives at `~/.config/opencode/opencode.json`; plugins are declared in the `"plugin"` array using npm package syntax or git URLs.
