@@ -39,6 +39,7 @@ cp -r ~/mcds_agentic_tools/skills/* ~/.claude/skills/
 git clone git@github.com:csmcdermott/mcds_agentic_tools.git ~/mcds_agentic_tools
 mkdir -p ~/.config/agents/skills
 cp -r ~/mcds_agentic_tools/skills/* ~/.config/agents/skills/
+cp -r ~/mcds_agentic_tools/commands/* ~/.config/agents/commands/
 ```
 
 ## Dev Pre-Reqs
