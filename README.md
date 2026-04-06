@@ -38,6 +38,7 @@ cp -r ~/mcds_agentic_tools/skills/* ~/.claude/skills/
 ```bash
 git clone git@github.com:csmcdermott/mcds_agentic_tools.git ~/mcds_agentic_tools
 mkdir -p ~/.config/agents/skills
+mkdir -p ~/.config/agents/commands
 cp -r ~/mcds_agentic_tools/skills/* ~/.config/opencode/skills/
 cp -r ~/mcds_agentic_tools/commands/* ~/.config/opencode/commands/
 ```
