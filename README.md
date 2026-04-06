@@ -58,7 +58,7 @@ just install-pre-push
 ## Usage
 
 1. Clone or use this repo as a GitHub template.
-2. Replace `{PROJECT NAME}` placeholders in `CLAUDE.md` and `docs/agent/project-analysis.md`.
-3. Add project-specific tech stack, architecture notes, and constraints to `CLAUDE.md`.
+2. Replace `{PROJECT NAME}` placeholders in `AGENTS.md` and `docs/agent/project-analysis.md`.
+3. Add project-specific tech stack, architecture notes, and constraints to `AGENTS.md`.
 4. Run `just install-pre-push` to enable the pre-push hook.
 5. Fill in the stub justfile recipes (`lint`, `test`, `coverage`) with real commands.
